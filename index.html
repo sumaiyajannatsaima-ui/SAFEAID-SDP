@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SafeAid | Emergency & Community Support</title>
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="header">
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                <span class="logo-mark">
+                    <i class="fa-solid fa-shield-heart"></i>
+                </span>
+                <span>Safe<span>Aid</span></span>
+            </a>
+
+            <nav class="navigation">
+                <a href="#home" class="nav-active">Home</a>
+                <a href="#incidents">Incident</a>
+                <a href="#blood">Blood Support</a>
+                <a href="#hospital">Hospitals</a>
+
+                <div class="nav-dropdown">
+                    <a href="#support">
+                        Community <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a href="#unidentified">Unidentified Patients</a>
+                        <a href="#donation">Humanitarian Aid</a>
+                        <a href="#volunteers">Community Volunteers</a>
+                        <a href="#reviews">Reviews</a>
+                    </div>
+                </div>
+            </nav>
+
+            <a href="register.php" class="register-btn">
+                <i class="fa-solid fa-user-plus"></i> Register
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-container">
+
+            <div class="hero-content">
+
+
+
+
+                <h1>
+                    When every moment matters,
+                    <span class="red-text">Help each other.</span>
+                </h1>
+
+                <p>
+                    SafeAid brings communities together through verified
+                    incident information, healthcare support, blood donation
+                    and humanitarian assistance. Because every helping hand matters.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="#support" class="primary-btn">
+                        Explore Our Services
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <a href="report-incident.php" class="secondary-btn">
+                        Report an Incident
+                    </a>
+
+                </div>
+
+                <div class="hero-note">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Information is reviewed before being shared publicly.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOS BUTTON -->
+    <a href="tel:999" class="sos-tab">
+        <span class="sos-icon">
+            <i class="fa-solid fa-phone-volume"></i>
+        </span>
+        <strong>SOS</strong>
+        <small>EMERGENCY</small>
+    </a>
+
+
+    <!-- INCIDENT REPORTS -->
+    <section class="section incidents-section" id="incidents">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">EMERGENCY INFORMATION</span>
+                <h2>Incident Reports</h2>
+                <p>
+                    Explore verified reports from different communities and locations.
+                </p>
+            </div>
+<!-- ACCIDENT LOCATION SEARCH -->
+
+<div class="accident-search-section">
+
+    <h2>Find Accidents by Location</h2>
+
+    <p>Select your location to find accident reports.</p>
+
+    <div class="location-search">
+
+<select id="division">
+    <option value="">Select Division</option>
+    <option value="Dhaka">Dhaka</option>
+    <option value="Chattogram">Chattogram</option>
+    <option value="Rajshahi">Rajshahi</option>
+    <option value="Khulna">Khulna</option>
+    <option value="Barishal">Barishal</option>
+    <option value="Sylhet">Sylhet</option>
+    <option value="Rangpur">Rangpur</option>
+    <option value="Mymensingh">Mymensingh</option>
+</select>
+
+
+<select id="district">
+    <option value="">Select District</option>
+</select>
+
+<select id="area">
+    <option value="">Select Area</option>
+</select>
+
+        <button type="button" id="searchAccidents">
+            Search Accidents
+        </button>
+
+    </div>
+
+    <p id="searchMessage"></p>
+
+    <div id="searchResults"></div>
+
+    <h3>Accident Location Map</h3>
+
+    <div id="accidentMap"></div>
+
+</div>
+            <div class="incident-grid">
+
+                <article class="incident-card road-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-car-burst"></i>
+                    </div>
+
+                    <span class="category">ROAD SAFETY</span>
+                    <h3>Road Incidents</h3>
+
+                    <p>
+                        View approved road accident reports and updates from affected areas.
+                    </p>
+
+                    <a href="road-incidents.php">
+                        View Reports <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+
+                <article class="incident-card fire-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+
+                    <span class="category">FIRE SAFETY</span>
+                    <h3>Fire Incidents</h3>
+
+                    <p>
+                        Find verified fire incident information and affected locations.
+                    </p>
+
+                    <a href="fire-incidents.php">
+                        View Reports <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+
+                <article class="incident-card flood-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-house-flood-water"></i>
+                    </div>
+
+                    <span class="category">DISASTER INFORMATION</span>
+                    <h3>Flood Incidents</h3>
+
+                    <p>
+                        Explore approved flood reports and community updates.
+                    </p>
+
+                    <a href="flood-incidents.php">
+                        View Reports <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+            </div>
+
+            <div class="report-notice">
+                <i class="fa-solid fa-circle-check"></i>
+
+                All incident reports are reviewed by the administrator before publication.
+
+                <a href="report-incident.php">Submit a Report</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMMUNITY SUPPORT -->
+    <section class="section community-section" id="support">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">COMMUNITY SUPPORT</span>
+                <h2>Support That Connects People</h2>
+                <p>
+                    Find essential services and become part of a supportive community.
+                </p>
+            </div>
+
+
+            <!-- BLOOD DONATION -->
+            <div class="subsection-heading" id="blood">
+
+                <div>
+                    <span class="mini-label">BLOOD DONATION</span>
+                    <h3>Give Blood. Give Hope.</h3>
+                </div>
+
+                <a href="blood-donation.php" class="text-link">
+                    Explore Blood Services
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="blood-grid">
+
+                <article class="blood-card">
+                    <div class="blood-icon">
+                        <i class="fa-solid fa-hand-holding-droplet"></i>
+                    </div>
+
+                    <h3>Become a Donor</h3>
+
+                    <p>
+                        Register yourself as a donor and help someone in need.
+                    </p>
+
+                    <a href="donor-register.php">
+                        Register as Donor
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+
+                <article class="blood-card">
+                    <div class="blood-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+
+                    <h3>Find Blood Donors</h3>
+
+                    <p>
+                        Search for blood donors by blood group and location.
+                    </p>
+
+                    <a href="find-donor.php">
+                        Search Donors
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+
+                <article class="blood-card">
+                    <div class="blood-icon">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+
+                    <h3>Request Blood</h3>
+
+                    <p>
+                        Submit a blood request for a patient who needs support.
+                    </p>
+
+                    <a href="blood-request.php">
+                        Request Blood
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+            </div>
+
+
+            <!-- HOSPITAL SERVICES -->
+            <div class="hospital-area" id="hospital">
+
+                <div class="hospital-icon">
+                    <i class="fa-solid fa-hospital"></i>
+                </div>
+
+                <div class="hospital-info">
+
+                    <span class="mini-label">HEALTHCARE INFORMATION</span>
+
+                    <h3>Hospital & Medical Services</h3>
+
+                    <p>
+                        Find hospitals, contact details and essential healthcare information.
+                    </p>
+
+                </div>
+
+                <a href="hospitals.php" class="dark-button">
+                    Explore Hospitals
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- UNIDENTIFIED PATIENT -->
+    <section class="unidentified-section" id="unidentified">
+
+        <div class="container unidentified-container">
+
+            <div class="unidentified-icon">
+                <i class="fa-solid fa-user-injured"></i>
+            </div>
+
+            <div class="unidentified-content">
+
+                <span class="eyebrow">PATIENT IDENTIFICATION SUPPORT</span>
+
+                <h2>
+                    Help Reconnect Unidentified Patients With Their Families.
+                </h2>
+
+                <p>
+                    View verified information about unidentified patients
+                    receiving treatment in hospitals. Help families find
+                    their missing loved ones through responsible information sharing.
+                </p>
+
+                <a href="unidentified-patients.php" class="unidentified-btn">
+                    View Patient Information
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HUMANITARIAN DONATION -->
+    <section class="donation-section" id="donation">
+
+        <div class="container donation-container">
+
+            <div class="donation-content">
+
+                <span class="donation-label">HUMANITARIAN SUPPORT</span>
+
+                <h2>
+                    Your Support Can
+                    <span>Change a Life.</span>
+                </h2>
+
+                <p>
+                    Support verified families and individuals facing
+                    difficult situations. Your contribution can help
+                    provide food, medical treatment and essential needs.
+                </p>
+
+                <a href="donation-cases.php" class="donation-btn">
+                    Explore Donation Cases
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <small>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Donation cases are reviewed before publication.
+                </small>
+
+            </div>
+
+
+            <div class="donation-art">
+
+                <div class="donation-circle">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                </div>
+
+                <span class="heart heart-one">
+                    <i class="fa-solid fa-heart"></i>
+                </span>
+
+                <span class="heart heart-two">
+                    <i class="fa-solid fa-heart"></i>
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMMUNITY VOLUNTEERS -->
+    <section class="volunteer-section" id="volunteers">
+
+        <div class="container volunteer-container">
+
+            <div class="volunteer-icon">
+                <i class="fa-solid fa-people-group"></i>
+            </div>
+
+            <div class="volunteer-content">
+
+                <span class="eyebrow">COMMUNITY VOLUNTEERS</span>
+
+                <h2>Be Part of the Helping Hands.</h2>
+
+                <p>
+                    Join people who are willing to contribute their
+                    time and effort to emergency awareness,
+                    humanitarian activities and community support.
+                </p>
+
+                <a href="volunteers.php" class="volunteer-btn">
+                    Join Our Volunteer Network
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AREA BASED SUBSCRIPTION -->
+    <section class="subscribe-section" id="subscribe">
+
+        <div class="container subscribe-container">
+
+            <div class="subscribe-content">
+
+                <span class="eyebrow">STAY INFORMED</span>
+
+                <h2>Local Updates, Delivered to Your Inbox.</h2>
+
+                <p>
+                    Subscribe to receive email updates about newly approved
+                    incident reports and important community information
+                    from your selected area.
+                </p>
+
+            </div>
+
+
+            <form action="subscribe.php" method="POST" class="subscribe-form">
+
+                <label for="subscriber_area">Select Your Area</label>
+
+                <select name="area" id="subscriber_area" required>
+                    <option value="">Choose your division</option>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Chattogram">Chattogram</option>
+                    <option value="Rajshahi">Rajshahi</option>
+                    <option value="Khulna">Khulna</option>
+                    <option value="Barishal">Barishal</option>
+                    <option value="Sylhet">Sylhet</option>
+                    <option value="Rangpur">Rangpur</option>
+                    <option value="Mymensingh">Mymensingh</option>
+                </select>
+
+
+                <label for="subscriber_email">Email Address</label>
+
+                <div class="email-input">
+                    <i class="fa-regular fa-envelope"></i>
+
+                    <input type="email" name="email" id="subscriber_email" placeholder="Enter your email address"
+                        required>
+                </div>
+
+
+                <button type="submit" class="subscribe-btn">
+                    Subscribe
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <small>
+                    You can unsubscribe from email updates at any time.
+                </small>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- REVIEWS -->
+    <section class="reviews-section" id="reviews">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="eyebrow">COMMUNITY FEEDBACK</span>
+
+                <h2>Your Voice Matters</h2>
+
+                <p>
+                    Share your experience and help improve our community services.
+                </p>
+
+            </div>
+
+
+            <div class="review-panel">
+
+                <div class="review-info">
+
+                    <i class="fa-solid fa-comments"></i>
+
+                    <h3>Help Us Serve Better.</h3>
+
+                    <p>
+                        Your feedback helps us understand the needs of our community.
+                    </p>
+
+                </div>
+
+
+                <div class="review-actions">
+
+                    <a href="reviews.php" class="review-btn">
+                        Share Your Review
+                    </a>
+
+                    <a href="reviews.php#all-reviews" class="review-link">
+                        Read Community Reviews
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container footer-main">
+
+            <div class="footer-brand">
+
+                <a href="#home" class="logo footer-logo">
+
+                    <span class="logo-mark">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </span>
+
+                    <span>Safe<span>Aid</span></span>
+
+                </a>
+
+                <p>
+                    Connecting communities through emergency
+                    information, healthcare and humanitarian support.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>Services</h3>
+
+                <a href="#incidents">Incident Reports</a>
+                <a href="#blood">Blood Donation</a>
+                <a href="#hospital">Hospital Services</a>
+                <a href="#unidentified">Unidentified Patients</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>Community</h3>
+
+                <a href="#donation">Humanitarian Aid</a>
+                <a href="#volunteers">Volunteers</a>
+                <a href="#subscribe">Email Updates</a>
+                <a href="#reviews">Reviews</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>Emergency</h3>
+
+                <a href="tel:999">National Emergency: 999</a>
+                <a href="report-incident.php">Report an Incident</a>
+                <a href="register.php">Create Account</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <span>© 2026 SafeAid. All Rights Reserved.</span>
+
+                <span>Emergency & Community Support Platform</span>
+
+            </div>
+
+        </div>
+
+    </footer>
+<script src="script.js"></script>
+
+</body>
+
+</html>
